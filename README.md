@@ -20,7 +20,7 @@ portal/
 ├── backend/              # Express.js API server
 ∂   ├┐ src/
 ∂   │   ├┐ config/      # Configuration files
-"��   │   ├┐ controllers/ # Route controllers
+"��   │   ├┐ controllers/ # Route controllers
 ∂   │   ├─ services/    # Business logic (Taxes, Properties, Bills, Water, etc.)
 ∂   │   ├┐ routes/      # API routes
 ∂   │   ├┐ models/      # Mongoose models
@@ -40,8 +40,8 @@ portal/
     ∂   ├─ pages/      # Page components (Auth, Dashboard, Tax, Properties, Admin, etc.)
     ∂   ├┐ layouts/    # Layout components
     ∂   └─ main.jsx    # App entry point
-    8�'8�  tailwind.config.js
-    8�%8�  package.json
+    8�'8�  tailwind.config.js
+    8�%8�  package.json
 ```
 
 ## 🍣️ Quick Start
@@ -77,7 +77,7 @@ npm run dev
 - ✌ **Document Storage:** Cloudinary integration for scalable file uploads.
 - ✌ **Audit Logging & Security:** Rate limiting and system audit trails.
 
-### Frontend Capabilities �8
+### Frontend Capabilities �8
 - ✌ Modern, aesthetic UI with Space Grotesk typography and Glassmorphism elements.
 - ✌ Taxpayer Dashboard with visual analytics, pending tasks, and recent transactions.
 - ✌ Admin Dashboard for overseeing operations, verifications, and defaulters.
