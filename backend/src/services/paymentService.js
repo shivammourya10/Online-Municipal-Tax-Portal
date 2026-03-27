@@ -20,7 +20,8 @@ const reducePropertyPendingTax = async (propertyId, amountPaid) => {
     const pending = Number(property.taxDetails?.pendingAmount || 0);
     const newPending = Math.max(0, pending - Number(amountPaid));
     property.taxDetails.pendingAmount = newPending;
-    property.taxDetails.lastPaymentDate = new Date();
+    property.taxDetails.lastPaidDate = new Date();
+    property.taxDetails.lastPaidAmount = Number(amountPaid);
     await property.save();
     logger.info(`Property ${propertyId} pending tax updated to ₹${newPending}`);
   } catch (error) {
@@ -48,7 +49,7 @@ export const createPaymentOrder = async (userId, paymentData) => {
   if (paymentGateway === 'razorpay') {
     // Create Razorpay order
     const options = {
-      amount: amountNumber * 100, // Convert to paise
+      amount: Math.round(amountNumber * 100), // Convert to paise and ensure it's an integer
       currency: 'INR',
       receipt: generateReceiptNumber(),
       notes: {
@@ -76,7 +77,7 @@ export const createPaymentOrder = async (userId, paymentData) => {
               name: metadata?.description || 'Tax Payment',
               description: `${type.replace('_', ' ')} - Transaction ID: TXN${Date.now().toString(36)}`,
             },
-            unit_amount: amountNumber * 100, // Convert to paise
+            unit_amount: Math.round(amountNumber * 100), // Convert to paise and ensure it's an integer
           },
           quantity: 1,
         },

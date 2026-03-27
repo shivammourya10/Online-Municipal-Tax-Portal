@@ -247,7 +247,7 @@ const TaxCalculator = () => {
                     <h3 className="font-semibold text-lg">{property.propertyDetails?.name || 'Property'}</h3>
                     <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 capitalize">{property.propertyType} - {property.propertySubType?.replace('_', ' ')}</span>
                   </div>
-                  <span className={`text-xs px-2 py-1 rounded-full ${property.verified ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>{property.verified ? 'Verified' : 'Pending'}</span>
+                  <span className={`text-xs px-2 py-1 rounded-full ${property.verified ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>{property.verified ? 'Verified' : 'Verification Pending'}</span>
                 </div>
                 <div className="space-y-2 text-sm text-gray-600 mb-4">
                   <p>📍 {property.propertyDetails?.address?.city}, {property.propertyDetails?.address?.state}</p>

@@ -1,44 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply font-sans text-slate-900 antialiased;
+    background-color: #f7f9fc;
+    background-image: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.12), transparent 32%),
+      radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.08), transparent 26%),
+      linear-gradient(135deg, #f7f9fc 0%, #eef2ff 45%, #e0f2fe 100%);
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.2);
+    color: #0f172a;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition duration-200 shadow-sm shadow-primary-100/50; 
   }
   
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 text-white hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply bg-white/80 border border-slate-200 text-slate-800 hover:bg-white hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2;
   }
   
   .btn-danger {
-    @apply bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    @apply bg-red-600 text-white hover:bg-red-700 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2;
   }
   
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-2 rounded-xl border border-slate-200 bg-white/80 backdrop-blur focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent shadow-sm;
   }
   
   .input:disabled {
-    @apply bg-gray-50 text-gray-700 cursor-not-allowed;
+    @apply bg-slate-100 text-slate-500 cursor-not-allowed;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white/80 rounded-2xl shadow-xl shadow-primary-100/50 border border-white/60 backdrop-blur-xl p-6;
   }
   
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide shadow-sm bg-white/60 backdrop-blur;
   }
   
   .badge-success {
